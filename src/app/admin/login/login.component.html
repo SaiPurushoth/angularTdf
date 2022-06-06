@@ -1,0 +1,47 @@
+
+<div class="container-fluid">
+    <h1>Register Forms</h1>
+    
+    <form #userForm="ngForm" action="/admin/home">
+    {{userModel | json}}
+    <div class="mb-3"> 
+      <label>Name</label>
+    <input type="text"  class="form-control" #name="ngModel" [class.is-invalid]="name.invalid && name.touched" 
+    name="username" [(ngModel)]="userModel.name"  required>
+    </div>
+    
+    <div class="mb-3"> 
+      <label>Email</label>
+    <input type="email" class="form-control" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [class.is-invalid]="email.invalid && email.touched"
+     name="email" [(ngModel)]="userModel.email" #username required>
+    </div>
+    
+
+    <div class="mb-3"> 
+      <label>Password - At least 1 Uppercase, At least 1 Lowercase, At least 1 Number, At least 1 Symbol (symbol allowed --> !@#$%^&*_=+-), Min 8 chars and Max 12 chars</label>
+    <input type="password" class="form-control" #password pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" #pass="ngModel" [class.is-invalid]="pass.invalid && pass.touched"
+    name="Password" [(ngModel)]="userModel.password" required>
+    </div>
+
+
+    <div class="mb-3"> 
+      <label>Phone</label>
+    <input type="tel" class="form-control"#phone="ngModel" pattern="^\d{10}$" [class.is-invalid]="phone.invalid && phone.touched"
+    name="phone"[(ngModel)]="userModel.phone">
+    </div>
+    
+    
+    <div class="mb-3"> 
+      <label>Age</label>
+    <input type="number" size="3" min="1" #age="ngModel" class="form-control" [class.is-invalid]="age.invalid && age.touched"
+    name="age" [(ngModel)]="userModel.age">
+    </div>
+  
+    <a href="/admin/home" class="button" (click)="onClick(username.value,password.value)">submit</a> 
+
+    <!-- <input type="submit"  value="register" (click)="onClick(username.value,password.value)"> -->
+   <button type="button" (click)="onClick(username.value,password.value)">Register</button>
+
+    </form>
+    
+    </div>

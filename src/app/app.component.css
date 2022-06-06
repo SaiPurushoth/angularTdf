@@ -1,0 +1,18 @@
+nav {
+    border: 1px;
+    background-color:chocolate;
+    color: white;
+    padding: 6px;
+    text-align: center;
+}
+ 
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+a:hover{
+    color: black;
+}
